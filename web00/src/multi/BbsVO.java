@@ -1,16 +1,16 @@
 package multi;
 
 public class BbsVO {
-	private String no;
+	private int no;
 	private String title;
 	private String content;
 	private String writer;
 
-	public String getNo() {
+	public int getNo() {
 		return no;
 	}
 
-	public void setNo(String no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 

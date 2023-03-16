@@ -7,7 +7,7 @@
     String content = request.getParameter("content");
     
     BbsVO bag = new BbsVO();
-    bag.setNo(no);
+    bag.setNo(Integer.parseInt(no));
     bag.setContent(content);
     
     BbsDAO dao = new BbsDAO();
@@ -20,14 +20,15 @@
 <title>Update</title>
 <style type="text/css">
 body {
-	background: lightgreen;
+	background: lightblue;
 }
 </style>
 </head>
 <body>
 게시물 수정 요청되었음.
-<hr color="green">
-<a href="update2.html"><button>이전 페이지로</button></a><br>
+<hr color="blue">
+<a href="update2.html"><button>이전 페이지로</button></a>
+<a href="bbs.html"><button>게시판 정보 페이지로</button></a><br>
 수정할 번호 : <%= no %><br>
 수정할 내용 : <%= content %>
 </body>

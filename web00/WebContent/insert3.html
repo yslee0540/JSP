@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상품등록</title>
+<style type="text/css">
+body {
+	background: pink;
+}
+#b2 {
+	background: blue;
+	color: white;
+}
+#b1 {
+	background: lime;
+}
+.t1 {
+	background: yellow;
+	width: 150px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<h3>상품 등록 페이지</h3>
+	<hr>
+	<a href="product.html">
+		<button id="b1">첫 페이지로</button>
+	</a>
+	<form action="insert3.jsp">
+		<table border="1">
+			<tr>
+				<td class="t1">아이디</td>
+				<td><input name="id"></td>
+			</tr>
+			<tr>
+				<td class="t1">상품명</td>
+				<td><input name="name"></td>
+			</tr>
+			<tr>
+				<td class="t1">내용</td>
+				<td><input name="content"></td>
+			</tr>
+			<tr>
+				<td class="t1">가격</td>
+				<td><input name="price"></td>
+			</tr>
+			<tr>
+				<td class="t1">회사</td>
+				<td><input name="company"></td>
+			</tr>
+			<tr>
+				<td class="t1">사진</td>
+				<td><input name="img" type="file"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" bgcolor="#e0ffb5">
+					<button id="b2">상품등록</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

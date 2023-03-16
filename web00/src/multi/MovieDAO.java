@@ -6,13 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class MemberDAO3 {
+public class MovieDAO {
 
 	public ArrayList<MemberVO> list() {
 		ResultSet rs = null;
 		
 		//가방들 넣어줄 큰 컨테이너 역할
-		//<MemberVO> -> MemberVO만 들어감
 		ArrayList<MemberVO> list = new ArrayList<>();
 		MemberVO bag = null;
 		try {
@@ -192,7 +191,7 @@ public class MemberDAO3 {
 		return result;
 	}
 	
-	public int insert(MemberVO bag) {
+	public int insert(MovieVO bag) {
 		//1. 가방을 받아서 변수에 넣기
 		int result = 0;
 		try {
@@ -205,20 +204,21 @@ public class MemberDAO3 {
 			Connection con = DriverManager.getConnection(url, user, password);
 			System.out.println("2. mySQL 연결 성공");
 			
-			String sql = "insert into member values (?, ?, ?, ?)";
+			String sql = "insert into movie values (?, ?, ?, ?, ?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			//R빼고 인덱스 0부터 시작, 유일하게 db는 인덱스가 1부터 시작
 			ps.setString(1, bag.getId());
-			ps.setString(2, bag.getPw());
-			ps.setString(3, bag.getName());
-			ps.setString(4, bag.getTel());
+			ps.setString(2, bag.getTitle());
+			ps.setString(3, bag.getContent());
+			ps.setString(4, bag.getLocation());
+			ps.setString(5, bag.getDirector());
 			System.out.println("3. SQL문 부품(객체)으로 만들어주기 성공");
 			
 			//insert, update, delete문만(실행결과가 int)
 			result = ps.executeUpdate();
 			System.out.println("4. SQL문 mySQL로 보내기 성공");
 			if (result == 1) {
-				System.out.println("회원가입처리 완료");
+				System.out.println("영화등록 완료");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

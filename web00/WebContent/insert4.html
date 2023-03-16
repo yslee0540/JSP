@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판 글쓰기</title>
+<title>영화등록</title>
 <style type="text/css">
 body {
-	background: #89CFF0;
+	background: #74cf89;
 }
 
 #b2 {
@@ -25,13 +25,17 @@ body {
 </style>
 </head>
 <body>
-	<h3>게시판 글쓰기 페이지</h3>
+	<h3>영화 등록 페이지</h3>
 	<hr>
-	<a href="bbs.html">
+	<!-- <a href="movie.html">
 		<button id="b1">첫 페이지로</button>
-	</a>
-	<form action="insert2.jsp">
+	</a> -->
+	<form action="insert4.jsp">
 		<table border="1">
+			<tr>
+				<td class="t1">아이디</td>
+				<td><input name="id"></td>
+			</tr>
 			<tr>
 				<td class="t1">제목</td>
 				<td><input name="title"></td>
@@ -41,16 +45,23 @@ body {
 				<td><input name="content"></td>
 			</tr>
 			<tr>
-				<td class="t1">작성자</td>
-				<td><input name="writer"></td>
+				<td class="t1">장소</td>
+				<td><input name="location"></td>
+			</tr>
+			<tr>
+				<td class="t1">감독</td>
+				<td><input name="director"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center" bgcolor="#e0ffb5">
-					<button id="b2">글쓰기완료</button>
+					<button id="b2">영화등록</button>
 				</td>
 			</tr>
 		</table>
-		<!-- 입력한 값들이 서버(톰킷)으로 전달될 때에는  form태그 안에 있어야 함. -->
 	</form>
 </body>
 </html>
+
+<!-- insert4.html: 보여지는 부분(view)
+	 insert4.jsp: 제어하는 부분(control)
+	 MovieDAO.java: jdbc에 의해 처리되는 부분(model) -->
