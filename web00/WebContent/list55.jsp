@@ -1,12 +1,11 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="multi.BbsVO"%>
-<%@page import="multi.BbsDAO"%>
+<%@page import="multi.BookVO"%>
+<%@page import="multi.BookDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    BbsDAO dao = new BbsDAO();
-    //dao가 리턴한 BbsVO가 들어간 ArrayList 받는다.
-    ArrayList<BbsVO> list = dao.list();
+    BookDAO dao = new BookDAO();
+    ArrayList<BookVO> list = dao.list();
     %>
 <!DOCTYPE html>
 <html>
@@ -17,41 +16,38 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <style type="text/css">
-button {
-	margin:10px 0 0;
-}
 a {
 	text-decoration: none;
 }
 </style>
 </head>
 <body>
-<a href="bbs.html"><button class="btn btn-primary">첫 페이지로</button></a>
-글 개수: <%= list.size() %><br>
+검색 결과: <%= list.size() %>개
+<form action="one55.jsp">
+제목 검색: <input name="title">
+</form>
 <hr color="blue">
+<% if (list.size() == 0) { %>
+<h3>등록된 책이 없습니다.</h3>
+<% } else { %>
 <table class="table table-striped table-hover">
-	<tr class="table-info">
+	<tr class="table-success">
 		<th>번호</th>
 		<th>제목</th>
-		<th>내용</th>
-		<th>글쓴이</th>
+		<th>이미지</th>
 	</tr> 
-	<%
-		for(BbsVO bag2: list){
-	%>
+	<% for (BookVO bag2: list) { %>
 	<tr>
 		<td><%= bag2.getNo() %></td>
 		<td>
-			<a href="http://localhost:8888/web00/one2.jsp?no=<%= bag2.getNo() %>">
+			<a href="one55.jsp?title=<%= bag2.getTitle() %>">
 				<%= bag2.getTitle() %>
 			</a>
 		</td>
-		<td><%= bag2.getContent() %></td>		
-		<td><%= bag2.getWriter() %></td>		
+		<td><img alt="" src="img/<%= bag2.getImg() %>" width="150"></td>		
 	</tr>
-	<%
-		}
-	%>
+	<% } %>
 </table>
+<% } %>
 </body>
 </html>

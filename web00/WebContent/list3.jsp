@@ -1,12 +1,11 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="multi.BbsVO"%>
-<%@page import="multi.BbsDAO"%>
+<%@page import="multi.ProductVO"%>
+<%@page import="multi.ProductDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    BbsDAO dao = new BbsDAO();
-    //dao가 리턴한 BbsVO가 들어간 ArrayList 받는다.
-    ArrayList<BbsVO> list = dao.list();
+    ProductDAO dao = new ProductDAO();
+    ArrayList<ProductVO> list = dao.list();
     %>
 <!DOCTYPE html>
 <html>
@@ -26,31 +25,38 @@ a {
 </style>
 </head>
 <body>
-<a href="bbs.html"><button class="btn btn-primary">첫 페이지로</button></a>
-글 개수: <%= list.size() %><br>
+<a href="product.html"><button class="btn btn-danger">첫 페이지로</button></a><br>
 <hr color="blue">
 <table class="table table-striped table-hover">
-	<tr class="table-info">
-		<th>번호</th>
-		<th>제목</th>
-		<th>내용</th>
-		<th>글쓴이</th>
+	<tr class="table-danger">
+		<th>아이디</th>
+		<th>상품명</th>
+		<th>가격</th>
+		<th>이미지</th>
 	</tr> 
 	<%
-		for(BbsVO bag2: list){
+	if (list.size() != 0) {
+		for(ProductVO bag2: list){
 	%>
 	<tr>
-		<td><%= bag2.getNo() %></td>
+		<td><%= bag2.getId() %></td>
 		<td>
-			<a href="http://localhost:8888/web00/one2.jsp?no=<%= bag2.getNo() %>">
-				<%= bag2.getTitle() %>
+			<a href="one3.jsp?id=<%= bag2.getId() %>">
+				<%= bag2.getName() %>
 			</a>
 		</td>
-		<td><%= bag2.getContent() %></td>		
-		<td><%= bag2.getWriter() %></td>		
+		<td><%= bag2.getPrice() %>원</td>		
+		<td><img src="img/<%= bag2.getImg() %>" width="200"></td>		
 	</tr>
 	<%
 		}
+	} else {
+	%>
+	<tr>
+		<td colspan="4">검색결과 없음</td>
+	</tr>
+	<%
+	} 
 	%>
 </table>
 </body>

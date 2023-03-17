@@ -1,12 +1,11 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="multi.BbsVO"%>
-<%@page import="multi.BbsDAO"%>
+<%@page import="multi.MovieVO"%>
+<%@page import="multi.MovieDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    BbsDAO dao = new BbsDAO();
-    //dao가 리턴한 BbsVO가 들어간 ArrayList 받는다.
-    ArrayList<BbsVO> list = dao.list();
+    MovieDAO dao = new MovieDAO();
+    ArrayList<MovieVO> list = dao.list();
     %>
 <!DOCTYPE html>
 <html>
@@ -26,32 +25,30 @@ a {
 </style>
 </head>
 <body>
-<a href="bbs.html"><button class="btn btn-primary">첫 페이지로</button></a>
-글 개수: <%= list.size() %><br>
+<!-- <a href="movie.html"><button class="btn btn-danger">첫 페이지로</button></a><br>-->
+검색 결과: <%= list.size() %>개
 <hr color="blue">
+<% if (list.size() == 0) { %>
+<h3>등록된 영화가 없습니다.</h3>
+<% } else { %>
 <table class="table table-striped table-hover">
-	<tr class="table-info">
-		<th>번호</th>
+	<tr class="table-success">
+		<th>아이디</th>
 		<th>제목</th>
 		<th>내용</th>
-		<th>글쓴이</th>
 	</tr> 
-	<%
-		for(BbsVO bag2: list){
-	%>
+	<% for (MovieVO bag2: list){ %>
 	<tr>
-		<td><%= bag2.getNo() %></td>
+		<td><%= bag2.getId() %></td>
 		<td>
-			<a href="http://localhost:8888/web00/one2.jsp?no=<%= bag2.getNo() %>">
+			<a href="one4.jsp?id=<%= bag2.getId() %>">
 				<%= bag2.getTitle() %>
 			</a>
 		</td>
 		<td><%= bag2.getContent() %></td>		
-		<td><%= bag2.getWriter() %></td>		
 	</tr>
-	<%
-		}
-	%>
+	<% } %>
 </table>
+<% } %>
 </body>
 </html>
