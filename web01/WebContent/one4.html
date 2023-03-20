@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화검색</title>
+<style type="text/css">
+body {
+	background: #74cf89;
+}
+
+#b2 {
+	background: blue;
+	color: white;
+}
+
+#b1 {
+	background: pink;
+}
+
+.t1 {
+	background: yellow;
+	width: 150px;
+	text-align: center;
+}
+button {
+	background: cyan;
+}
+
+</style>
+</head>
+<body>
+	<h3>영화검색 페이지</h3>
+	<hr>
+	<a href="list4.jsp">
+		<button id="b1">전체목록</button>
+	</a>
+	<hr>
+	<a href="one4.jsp?id=11">
+		<button>11</button></a>
+	<a href="one4.jsp?id=12">
+		<button>12</button></a>
+	<a href="one4.jsp?id=13">
+		<button>13</button></a>
+	<hr>
+	<form action="one4.jsp" method="get">
+		<table border="1">
+			<tr>
+				<td class="t1">아이디</td>
+				<td><input name="id"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" bgcolor="#e0ffb5">
+					<button id="b2">영화검색</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<hr>
+	<form action="one41.jsp" method="get">
+		<table border="1">
+			<tr>
+				<td class="t1">장소</td>
+				<td><input name="location"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" bgcolor="#e0ffb5">
+					<button id="b2">영화검색</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<hr>
+	<form action="one42.jsp" method="get">
+		<table border="1">
+			<tr>
+				<td class="t1">시작할 아이디</td>
+				<td><input name="id"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" bgcolor="#e0ffb5">
+					<button id="b2">영화검색</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
