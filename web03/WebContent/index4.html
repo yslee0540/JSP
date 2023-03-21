@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function login() {
+		id = document.getElementById('user').value
+		pw = document.getElementById('pw').value
+		
+		resultTag = document.getElementById('result')
+		if (id == 'root' && pw == '1234') {
+			//resultTag.innerHTML = '<b>로그인 성공</b>'
+			resultTag.innerHTML = '<img src=img/yes.png width=200>'
+		} else {
+			//resultTag.innerHTML = '<b>로그인 실패</b>'
+			resultTag.innerHTML = '<img src=img/no.png width=200>'
+		}
+	}
+	
+	function age() {
+		year = document.getElementById('year').value
+		age1 = 2023 - parseInt(year) + 1
+		resultTag = document.getElementById('result')
+		resultTag.innerHTML = '<b>' + age1 + '살</b>'
+		//alert(age1)
+	}
+	
+	function rec() {
+		w = document.getElementById('w').value
+		h = document.getElementById('h').value
+		resultTag = document.getElementById('result')
+		resultTag.innerHTML = '<b>' + parseFloat(w) * parseFloat(h) + '</b>'
+		//alert(parseFloat(w) * parseFloat(h))
+	}
+</script>
+</head>
+<body>
+아이디: <input id="user" value="root"><br>
+패스워드: <input id="pw" value="1234"><br>
+<button onclick="login()">로그인 처리</button>
+<hr>
+나이계산(태어난 연도): <input id="year" value="2000"><br>
+<button onclick="age()">나이계산 처리</button>
+<hr>
+가로길이: <input id="w" value="11.11"><br>
+세로길이: <input id="h" value="22.22"><br>
+<button onclick="rec()">사각형의 면적 처리</button>
+<div id="result" style="background:yellow;width:250px;margin:10px 0;font-size:20px;"></div>
+</body>
+</html>

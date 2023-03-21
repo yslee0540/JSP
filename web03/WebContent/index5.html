@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function idCheck() {
+		id = document.getElementById('user').value
+		resultTag = document.getElementById('result')
+		if (id.length >= 5) {
+			//resultTag.innerHTML = '5글자 이상입니다. 유효합니다.'
+			location.href = "http://www.naver.com"
+			//window.open("http://www.naver.com")
+		} else {
+			resultTag.innerHTML = '5글자 미만입니다. 재입력해주세요.'
+		}
+	}
+	
+	function pwCheck() {
+		pw = document.getElementById('pw').value
+		pw2 = document.getElementById('pw2').value
+		
+		resultTag = document.getElementById('result')
+		if (pw == pw2) {
+			resultTag.innerHTML = '<img src=img/yes.png width=200>'
+		} else {
+			resultTag.innerHTML = '<img src=img/no.png width=200>'
+		}
+	}
+</script>
+</head>
+<body>
+아이디: <input id="user" value="root">
+<button onclick="idCheck()">글자수 체크</button><br>
+패스워드: <input id="pw" value="1234"><br>
+패스워드2: <input id="pw2" value="1234">
+<button onclick="pwCheck()">패스워드 동일 체크</button>
+<hr>
+<div id="result" style="background:yellow;width:350px;margin:10px 0;font-size:20px;"></div>
+</body>
+</html>

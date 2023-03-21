@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function bag() {
+		p1 = document.getElementById("p1").value
+		
+		resultTag = document.getElementById('result')
+		if (p1 == '휴대폰') {
+			resultTag.innerHTML = '<img src=img/phone.png width=200>'
+		} else if (p1 == '시계') {
+			resultTag.innerHTML = '<img src=img/watch.png width=200>'
+		} else {
+			resultTag.innerHTML = '<img src=img/no.png width=200>'
+		}
+	}
+	
+	function bag2() {
+		p2 = document.getElementById("p2").value
+		
+		resultTag = document.getElementById('result')
+		if (p2 == '시계') {
+			location.href = "index7.html?p2=시계"
+		} else if (p2 == '가방') {
+			location.href = "index7.html?p2=가방"
+		}
+	}
+</script>
+</head>
+<body>
+가방 안에 들어있는 물건 중 제일 중요한 것: <input id="p1" value="휴대폰">
+<button onclick="bag()">제일 중요한 것</button><br>
+가방 안에 들어있는 물건 중 두번째 중요한 것: <input id="p2" value="시계">
+<button onclick="bag2()">두번째 중요한 것</button>
+<hr>
+<div id="result"></div>
+</body>
+</html>
