@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.6.4.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			$.ajax({
+				url: "data/dataset2.xml",
+				success: function(doc) {
+					//alert("xml요청 성공>>" + doc)
+					list = $(doc).find('record')
+					//alert(list.length)
+					for (var i = 0; i < list.length; i++) {
+						code = $(list[i]).find('code').text()
+						name = $(list[i]).find('name').text()
+						latitude = $(list[i]).find('latitude').text()
+						longitude = $(list[i]).find('longitude').text()
+						$('#result').append(code + ", " + name + ", " + latitude + ", " 
+											+ longitude + "<br>")
+						$.ajax({
+							url: "airport.jsp",
+							data: {
+								code: code,
+								name: name,
+								latitude: latitude,
+								longitude: longitude,
+							},
+							success: function() {
+								console.log('넣기 성공!')
+							}
+						})
+					}
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+<button id="b1" style="background:pink;">XML받아오기1</button>
+<hr>
+<div id="result"></div>
+</body>
+</html>
